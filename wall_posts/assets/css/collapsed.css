@@ -3,6 +3,10 @@
   margin: 5px 0 5px;
 }
 
+.comment-left {
+    margin-right: 0;
+}
+
 .comments-nav {
   border-bottom: 1px solid #ccc;
   margin-bottom: 5px;
