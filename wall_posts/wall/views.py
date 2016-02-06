@@ -1,5 +1,9 @@
-from django.http import HttpResponse
+from django.views.generic.base import TemplateView
 
 
-def login_page(request):
-    return HttpResponse('Some response')
+class LoginView(TemplateView):
+    template_name = 'index.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(LoginView, self).get_context_data(**kwargs)
+        return context

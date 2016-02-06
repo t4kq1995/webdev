@@ -1,0 +1,99 @@
+/* Start page */
+
+body {
+    background-image: url("../images/bg.jpg");
+}
+
+.col-md-3 {
+    margin-left: 7%;
+}
+
+a {
+  margin: 20px 0;
+  line-height: 34px;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  outline:none !important;
+  width:100%;
+}
+
+a:active {
+  outline:none;
+}
+
+a.ribbon {
+  outline: none;
+  outline-color: transparent;
+}
+
+a.ribbon:before, a.ribbon:after {
+  top: 5px;
+  z-index: -10;
+}
+
+a.ribbon:before {
+  border-color: #53dab6 #53dab6 #53dab6 transparent;
+  left: -25px;
+  border-width: 17px;
+}
+
+a.ribbon:after {
+  border-color: #53dab6 transparent #53dab6 #53dab6;
+  right: -25px;
+  border-width: 17px;
+}
+
+a:before, a:after {
+  content: '';
+  position: absolute;
+  height: 0;
+  width: 0;
+  border-style: solid;
+  border-width: 0;
+  outline:none;
+}
+
+a.btn-default:before {
+  border-color: #757575 #757575 #757575 transparent;
+}
+
+a.btn-default:after {
+  border-color: #757575 transparent #757575 #757575;
+}
+
+a.btn-primary:before {
+  border-color: #2e6da4 #2e6da4 #2e6da4 transparent;
+}
+
+a.btn-primary:after {
+  border-color: #2e6da4 transparent #2e6da4 #2e6da4;
+}
+
+a.btn-danger:before {
+  border-color: #ac2925 #ac2925 #ac2925 transparent;
+}
+
+a.btn-danger:after {
+  border-color: #ac2925 transparent #ac2925 #ac2925;
+}
+
+h2.logo {
+    font-family: 'Architects Daughter', cursive;
+    font-size: 54px;
+}
+
+.current_font {
+    font-family: 'Dancing Script', cursive;
+    font-size: 32px;
+}
+
+.current_font_simple {
+    font-family: 'Courgette', cursive;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.empty {
+    margin-top: 12%;
+}

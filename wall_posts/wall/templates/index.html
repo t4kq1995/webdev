@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+<!-- Title block -->
+{% block title %}
+    <title>Make me free | Nice to meet you</title>
+{% endblock %}
+<!-- End Title Block -->
+
+<!-- Main block -->
+{% block content %}
+<body>
+    <div class="container">
+
+	    <div class="row text-center">
+		    <h2 class="logo">Make me free</h2>
+            <p class="current_font">Just leave you message...</p>
+	    </div>
+
+        <div class="row">
+            <div class="empty"></div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-3">
+                <a href="/accounts/google/login" class="btn btn-danger ribbon current_font_simple">Sign in with Google+</a>
+            </div>
+
+            <div class="col-md-3">
+                <a href="/accounts/facebook/login" class="btn btn-primary ribbon current_font_simple">Sign in with Facebook</a>
+            </div>
+
+            <div class="col-md-3">
+                <a href="/accounts/github/login" class="btn btn-default ribbon current_font_simple">Sign in with Github</a>
+            </div>
+
+        </div>
+
+
+    </div>
+</body>
+
+{% endblock %}
