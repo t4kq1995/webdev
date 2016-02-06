@@ -38,8 +38,10 @@
     <!-- All comment form -->
     <div class="comments-nav">
         <a href="#">show all 23423 comments</a>
-        /
-        <a href='{% url "account_logout" %}'>sign out</a>
+        {% if user.is_authenticated %}
+            /
+            <a href='{% url "account_logout" %}'>sign out</a>
+        {% endif %}
     </div>
 
     <!-- Comment form -->
