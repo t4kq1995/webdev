@@ -8,7 +8,7 @@ body {
     margin-left: 7%;
 }
 
-a {
+a, button[type="submit"] {
   margin: 20px 0;
   line-height: 34px;
   position: relative;
@@ -18,33 +18,33 @@ a {
   width:100%;
 }
 
-a:active {
+a:active, button[type="submit"]:active {
   outline:none;
 }
 
-a.ribbon {
+a.ribbon, button[type="submit"].ribbon {
   outline: none;
   outline-color: transparent;
 }
 
-a.ribbon:before, a.ribbon:after {
+a.ribbon:before, a.ribbon:after, button[type="submit"].ribbon:before, button[type="submit"].ribbon:after {
   top: 5px;
   z-index: -10;
 }
 
-a.ribbon:before {
+a.ribbon:before, button[type="submit"].ribbon:before {
   border-color: #53dab6 #53dab6 #53dab6 transparent;
   left: -25px;
   border-width: 17px;
 }
 
-a.ribbon:after {
+a.ribbon:after, button[type="submit"].ribbon:after {
   border-color: #53dab6 transparent #53dab6 #53dab6;
   right: -25px;
   border-width: 17px;
 }
 
-a:before, a:after {
+a:before, a:after, button[type="submit"]:before, button[type="submit"]:after {
   content: '';
   position: absolute;
   height: 0;
@@ -54,11 +54,11 @@ a:before, a:after {
   outline:none;
 }
 
-a.btn-default:before {
+a.btn-default:before, button[type="submit"].btn-default:before {
   border-color: #757575 #757575 #757575 transparent;
 }
 
-a.btn-default:after {
+a.btn-default:after, button[type="submit"].btn-default:after {
   border-color: #757575 transparent #757575 #757575;
 }
 
