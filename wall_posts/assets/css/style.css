@@ -70,12 +70,26 @@ a.btn-primary:after {
   border-color: #2e6da4 transparent #2e6da4 #2e6da4;
 }
 
-a.btn-danger:before {
-  border-color: #ac2925 #ac2925 #ac2925 transparent;
+a.btn-twitch:before {
+    color: #fff;
+    border-color: #4e3280 #4e3280 #4e3280 transparent;
 }
 
-a.btn-danger:after {
-  border-color: #ac2925 transparent #ac2925 #ac2925;
+a.btn-twitch:after {
+    color: #fff;
+    border-color: #4e3280 transparent #4e3280 #4e3280;
+}
+
+.btn-twitch, .btn-twitch:focus, .btn-twitch:active {
+    color: #fff;
+    background-color: #6441A5;
+    border-color: #6441A5;
+}
+
+.btn-twitch:hover {
+    color: #fff;
+    background-color: #4e3280;
+    border-color: #4e3280;
 }
 
 h2.logo {
