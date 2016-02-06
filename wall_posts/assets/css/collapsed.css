@@ -1,0 +1,108 @@
+.post-comments {
+  padding-bottom: 9px;
+  margin: 5px 0 5px;
+}
+
+.comments-nav {
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 5px;
+}
+
+.post-comments .comment-meta {
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 5px;
+}
+
+.post-comments .media {
+  margin-bottom: 5px;
+  padding-left: 10px;
+}
+
+.post-comments .media-heading {
+    padding-left: 5px;
+    font-size: 12px;
+    color: grey;
+}
+
+.post-comments .media-left {
+    padding-left: 10px;
+    padding-top: 2px;
+}
+
+.post-comments .comment-meta a {
+  font-size: 12px;
+  color: grey;
+  font-weight: bolder;
+  margin-right: 5px;
+}
+
+.post-comments .media-body-comment {
+    margin: 0px;
+}
+
+.comment-area {
+    color:#666;
+    font-size:14px;
+    -moz-border-radius: 8px; -webkit-border-radius: 8px;
+    margin:5px 0px 10px 0px;
+    padding:10px;
+    height:75px;
+    border:#999 1px solid;
+    font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    transition: all 0.25s ease-in-out;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    box-shadow: 0 0 5px rgba(81, 203, 238, 0);
+    -webkit-box-shadow: 0 0 5px rgba(81, 203, 238, 0);
+    -moz-box-shadow: 0 0 5px rgba(81, 203, 238, 0);
+}
+
+.comment-area:focus {
+    color: #000;
+    outline: none;
+    border: #35a5e5 1px solid;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+    -webkit-box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+    -moz-box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+}
+
+.ph-button{
+    border-style: solid;
+    border-width: 0px 0px 3px;
+    box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    font-style: normal;
+    overflow: hidden;
+    text-align: center;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    transition: all 200ms ease-in-out 0s;
+    white-space: nowrap;
+    font-family: "Gotham Rounded A","Gotham Rounded B",Helvetica,Arial,sans-serif;
+    font-weight: 100;
+    padding: 9px 19px 9px;
+    font-size: 15px;
+    width: 10%;
+}
+
+/*Grey
+==========================*/
+.ph-btn-grey {
+     background-color: #C6CCD2;
+     border-color: #AAB3BB;
+}
+.ph-btn-grey:hover, .ph-btn-grey:focus {
+    background-color: #B8BFC7;
+    border-color: #AAB3BB;
+    color: #fff;
+    text-decoration: none;
+}
+
+.ph-btn-grey:active {
+    color: #ccc;
+}
+
+

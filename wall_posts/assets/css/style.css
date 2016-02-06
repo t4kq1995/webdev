@@ -97,3 +97,10 @@ h2.logo {
 .empty {
     margin-top: 12%;
 }
+
+.help_message {
+    margin-top: 20px;
+    text-align: center;
+    font-family: 'Courgette', cursive;
+    font-size: 15px;
+}

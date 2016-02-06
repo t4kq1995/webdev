@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+<!-- Title block -->
+{% block title %}
+    <title>Make me free | Just leave a message...</title>
+{% endblock %}
+<!-- End Title Block -->
+
+<!-- Main block -->
+{% block content %}
+<body>
+    <div class="container">
+
+	    <div class="row text-center">
+		    <h2 class="logo">Make me free</h2>
+            <p class="current_font">Just leave you message...</p>
+	    </div>
+
+        {% include 'collapsed.html' %}
+
+
+    </div>
+</body>
+
+<!-- Javascript -->
+<script type="text/javascript">
+
+    /* Empty redirect in facebook change */
+    if (window.location.hash != '') {
+        window.location.hash = '';
+    }
+
+</script>
+{% endblock %}

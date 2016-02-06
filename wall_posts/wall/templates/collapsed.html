@@ -1,0 +1,162 @@
+{% load staticfiles %}
+<div class="post-comments">
+
+    {% if user.is_authenticated %}
+    <!-- Send form -->
+    <form>
+        <div class="form-group">
+            <label for="comment">Your Comment</label>
+            <textarea id="comment" name="comment" class="form-control comment-area" rows="3"></textarea>
+        </div>
+        <a href='#' class='ph-button ph-btn-grey'>Submit message</a>
+    </form>
+
+    {% else %}
+
+    <div class="row">
+
+        <div class="col-md-3">
+            <a href="/accounts/google/login" class="btn btn-danger ribbon current_font_simple">Sign in with Google+</a>
+        </div>
+
+        <div class="col-md-3">
+            <a href="/accounts/facebook/login" class="btn btn-primary ribbon current_font_simple">Sign in with Facebook</a>
+        </div>
+
+        <div class="col-md-3">
+            <a href="/accounts/github/login" class="btn btn-default ribbon current_font_simple">Sign in with Github</a>
+        </div>
+
+        <div class="col-md-12">
+            <p class="help_message">" You need to sign in to comment and add messages "</p>
+        </div>
+
+    </div>
+
+    {% endif %}
+
+    <!-- All comment form -->
+    <div class="comments-nav">
+        <a href="#">show all 23423 comments</a>
+        /
+        <a href='{% url "account_logout" %}'>sign out</a>
+    </div>
+
+    <!-- Comment form -->
+    <div class="row">
+        <div class="media">
+            <!-- first comment -->
+
+            <div class="media-heading">
+                <button class="btn btn-default btn-xs" type="button" data-toggle="collapse"
+                        data-target="#collapseOne" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+                </button>
+                <span class="label label-info">06.02.2016</span>
+                by t4kq1995
+            </div>
+
+            <div class="panel-collapse collapse in" id="collapseOne">
+                <div class="media-left">
+                    <div class="vote-wrap">
+                        <div class="save-post">
+                            <a href="#"><span class="glyphicon glyphicon-star" aria-label="Save"></span></a>
+                        </div>
+                    </div>
+                    <!-- vote-wrap -->
+                </div>
+                <!-- media-left -->
+
+                <div class="media-body">
+                    <p class="media-body-comment">Some comment here</p>
+                    <div class="comment-meta">
+                        <span><a href="#">delete</a></span>
+
+                        {% if user.is_authenticated %}
+
+                        <span>
+                            <a class="" role="button" data-toggle="collapse"
+                               href="#replyCommentT" aria-expanded="false" aria-controls="collapseExample">reply</a>
+                        </span>
+
+                        {% endif %}
+
+                        <div class="collapse" id="replyCommentT">
+                            <form>
+                                <div class="form-group">
+                                    <label for="comment">Your Comment</label>
+                                    <textarea name="comment" class="form-control comment-area" rows="3"></textarea>
+                                </div>
+                                <a href='#' class='ph-button ph-btn-grey'>Submit message</a>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- comment-meta -->
+
+                    <div class="media">
+                        <!-- answer to the first comment -->
+
+                        <div class="media-heading">
+                            <button class="btn btn-default btn-collapse btn-xs" type="button" data-toggle="collapse"
+                                    data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseExample">
+                                <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+                            </button>
+                            <span class="label label-info">06.02.2016</span>
+                            by user3
+                        </div>
+
+                        <div class="panel-collapse collapse in" id="collapseTwo">
+
+                            <div class="media-left">
+                                <div class="vote-wrap">
+                                    <div class="save-post">
+                                        <a href="#">
+                                            <span class="glyphicon glyphicon-star" aria-label="Save"></span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- vote-wrap -->
+                            </div>
+                            <!-- media-left -->
+
+                            <div class="media-body">
+                                <p class="media-body-comment">Some answer</p>
+
+                                <div class="comment-meta">
+                                    <span><a href="#">delete</a></span>
+
+                                    {% if user.is_authenticated %}
+
+                                    <span>
+                                        <a class="" role="button" data-toggle="collapse"
+                                           href="#replyCommentThree" aria-expanded="false"
+                                           aria-controls="collapseExample">reply
+                                        </a>
+                                    </span>
+
+                                    {% endif %}
+
+                                    <div class="collapse" id="replyCommentThree">
+                                        <form>
+                                            <div class="form-group">
+                                                <label for="comment">Your Comment</label>
+                                                <textarea name="comment" class="form-control" rows="3"></textarea>
+                                            </div>
+                                            <a href='#' class='ph-button ph-btn-grey'>Submit message</a>
+                                        </form>
+                                    </div>
+                                </div>
+                                <!-- comment-meta -->
+                            </div>
+                        </div>
+                        <!-- comments -->
+                    </div>
+                    <!-- answer to the first comment -->
+                </div>
+            </div>
+            <!-- comments -->
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src='{% static "js/collapsed.js" %}'></script>
