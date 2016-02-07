@@ -69,7 +69,7 @@
 
                                 {% if user.id == node.user.id %}
                                     <span>
-                                        <a id="node_delete_{{ node.id }}" href="#">delete</a>
+                                        <a id="node_delete_{{ node.id }}" data-status="delete" href="#">delete</a>
                                     </span>
                                 {% endif %}
 
@@ -89,7 +89,8 @@
                                         <label for="comment-form-{{ node.id }}">Your Comment</label>
                                         <textarea id="comment-form-{{ node.id }}" name="comment" class="form-control comment-area" rows="3"></textarea>
                                     </div>
-                                    <a href='#' class='ph-button ph-btn-grey'>Submit message</a>
+                                    <a id="comment-submit-{{ node.id }}"
+                                       href='#' class='ph-button ph-btn-grey' data-status="comment">Submit message</a>
                                 </form>
                             </div>
                         </div>
@@ -108,3 +109,63 @@
 </div>
 
 <script type="text/javascript" src='{% static "js/collapsed.js" %}'></script>
+<script type="text/javascript">
+    /* Main submit controller */
+    $('#main-submit').click(function() {
+        var message = $('#comment-form').val();
+        if (message != '') {
+            $.ajax({
+                type: "POST",
+                url: "{% url 'index' %}",
+                data: {
+                    status: 'main',
+                    message: message,
+                    csrfmiddlewaretoken: '{{ csrf_token }}'
+                },
+                success: function(msg){
+                    alert( "Data Saved: " + msg.success );
+                }
+            });
+        }
+    });
+
+    /* Save comment in db */
+    $('[data-status="comment"]').click(function() {
+        var message = $(this).parent().find('textarea').val();
+        var id_full = $(this).parent().find('textarea').attr('id');
+        var id = id_full.split('-')[2];
+        if (message != '') {
+            $.ajax({
+                type: "POST",
+                url: "{% url 'index' %}",
+                data: {
+                    status: 'other',
+                    message: message,
+                    id: id,
+                    csrfmiddlewaretoken: '{{ csrf_token }}'
+                },
+                success: function(msg){
+                    alert( "Data Saved: " + msg.success );
+                }
+            });
+        }
+    });
+
+    /* Delete comment or message */
+    $('[data-status="delete"]').click(function() {
+        var id = $(this).attr('id').split('_')[2];
+        $.ajax({
+            type: "POST",
+            url: "{% url 'index' %}",
+            data: {
+                status: 'delete',
+                id: id,
+                csrfmiddlewaretoken: '{{ csrf_token }}'
+            },
+            success: function(msg){
+                alert( "Data Saved: " + msg.success );
+            }
+        });
+    });
+
+</script>
