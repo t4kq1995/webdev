@@ -42,14 +42,15 @@
             {% recursetree nodes %}
                 <div class="media-heading">
                     <button class="btn btn-default btn-xs" type="button" data-toggle="collapse"
-                            data-target="#collapseOne" aria-expanded="false" aria-controls="collapseExample">
+                            data-target="#collapse_{{ node.id }}"
+                            aria-expanded="false" aria-controls="collapseExample">
                         <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
                     </button>
                     <span class="label label-info">{{ node.date_save|date:'d.m.Y H:i'}}</span>
                     by {{ node.user.username }}
                 </div>
 
-                <div class="panel-collapse collapse in" id="collapseOne">
+                <div class="panel-collapse collapse in" id="collapse_{{ node.id }}">
                     <div class="media-left">
                         <div class="vote-wrap">
                             <div class="save-post">
@@ -63,14 +64,22 @@
                     <div class="media-body">
                         <p class="media-body-comment">{{ node.message }}</p>
                         <div class="comment-meta">
-                            <span><a href="#">delete</a></span>
 
                             {% if user.is_authenticated %}
 
-                            <span>
-                                <a class="" role="button" data-toggle="collapse"
-                                   href="#replyCommentT_{{ node.id }}" aria-expanded="false" aria-controls="collapseExample">reply</a>
-                            </span>
+                                {% if user.id == node.user.id %}
+                                    <span>
+                                        <a id="node_delete_{{ node.id }}" href="#">delete</a>
+                                    </span>
+                                {% endif %}
+
+                                {% if user.id != node.user.id %}
+                                    <span>
+                                        <a class="" role="button" data-toggle="collapse"
+                                        href="#replyCommentT_{{ node.id }}"
+                                           aria-expanded="false" aria-controls="collapseExample">reply</a>
+                                    </span>
+                                {% endif %}
 
                             {% endif %}
 
