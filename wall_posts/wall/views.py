@@ -45,6 +45,11 @@ class MessageView(TemplateView, View):
                 if answer:
                     return JsonResponse({'success': True})
 
+            elif request.POST['status'] == 'update':
+                answer = update_post(request.POST['id'])
+                if answer:
+                    return JsonResponse({'success': True})
+
             return JsonResponse({'success': False})
 
     def get_context_data(self, **kwargs):
@@ -90,6 +95,16 @@ def save_comment(id_post, user, message):
 def delete_post(id_post):
     try:
         Message.objects.get(pk=id_post).delete()
+    except Error:
+        return False
+    return True
+
+
+def update_post(id_post):
+    try:
+        post = Message.objects.get(pk=id_post)
+        post.likes += 1
+        post.save()
     except Error:
         return False
     return True
