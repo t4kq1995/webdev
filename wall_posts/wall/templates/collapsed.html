@@ -24,7 +24,7 @@
 
     <!-- All comment form -->
     <div class="comments-nav">
-        <a href="#">show all {{ all_messages }} messages</a>
+        we have {{ all_messages }} messages
         {% if user.is_authenticated %}
             /
             <a href='{% url "account_logout" %}'>sign out</a>
@@ -54,7 +54,13 @@
                     <div class="media-left">
                         <div class="vote-wrap">
                             <div class="save-post">
-                                <a id="vote_{{ node.id }}" href="#"><span class="glyphicon glyphicon-star" aria-label="Save"></span></a>
+                                {% if user.is_authenticated %}
+                                    <a id="vote_{{ node.id }}" href="#">
+                                        <span class="glyphicon glyphicon-star" aria-label="Save"></span>
+                                    </a>
+                                {% else %}
+                                    <span class="glyphicon glyphicon-star" aria-label="Save"></span>
+                                {% endif %}
                             </div>
                         </div>
                         <!-- vote-wrap -->
@@ -109,6 +115,7 @@
 </div>
 
 <script type="text/javascript" src='{% static "js/collapsed.js" %}'></script>
+<script src='{% static "js/sweetalert2.min.js" %}'></script>
 <script type="text/javascript">
     /* Main submit controller */
     $('#main-submit').click(function() {
@@ -123,7 +130,12 @@
                     csrfmiddlewaretoken: '{{ csrf_token }}'
                 },
                 success: function(msg){
-                    alert( "Data Saved: " + msg.success );
+                    var status = msg.success;
+                    if (status == true) {
+                       success_added('Your message is successfully added');
+                    } else {
+                        error_added();
+                    }
                 }
             });
         }
@@ -145,7 +157,12 @@
                     csrfmiddlewaretoken: '{{ csrf_token }}'
                 },
                 success: function(msg){
-                    alert( "Data Saved: " + msg.success );
+                    var status = msg.success;
+                    if (status == true) {
+                        success_added('Your comment is successfully added');
+                    } else {
+                        error_added();
+                    }
                 }
             });
         }
@@ -163,9 +180,46 @@
                 csrfmiddlewaretoken: '{{ csrf_token }}'
             },
             success: function(msg){
-                alert( "Data Saved: " + msg.success );
+                var status = msg.success;
+                    if (status == true) {
+                        success_added('Your post is successfully deleted');
+                    } else {
+                        error_added();
+                    }
             }
         });
     });
+
+    function success_added(text) {
+        /* Success action */
+        swal({
+            title: 'Success',
+            text: text,
+            type: 'success',
+            showConfirmButton: false,
+            timer: 2000
+        });
+
+        /* Timer to reload */
+        setTimeout(function() {
+            location.reload();
+        }, 2500);
+    }
+
+    function error_added() {
+        /* Error action */
+        swal({
+            title: 'Error',
+            text: 'Something went wrong',
+            type: 'error',
+            showConfirmButton: false,
+            timer: 2000
+        });
+
+        /* Timer to reload */
+        setTimeout(function() {
+            location.reload();
+        }, 2500);
+    }
 
 </script>
